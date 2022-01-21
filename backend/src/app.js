@@ -1,10 +1,11 @@
 import dotenv from 'dotenv'
 import express from 'express'
-import { connectDB } from './db/mongoose.js'
+// import { connectDB } from './db/mongoose.js'
+import apiRouter from './routes/api.js'
 
 // Some configurations
 dotenv.config()
-connectDB()
+// connectDB()
 
 // Get an express instance
 const app = express()
@@ -13,12 +14,15 @@ const app = express()
 app.use(express.json())
 
 /** TEST */
-// app.get('/', (req, res) => res.send('<h1>server live...<h1>'))
+app.get('/', (req, res) => res.send('<h1>server live...<h1>'))
 
 /** API ROUTES */
+
+/** EXAMPLES */
 // app.use(userRouter)
 // app.use(productRouter)
 // app.use(orderRouter)
+app.use(apiRouter)
 
 /** PUBLIC ACCESS */
 app.use(
