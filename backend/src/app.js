@@ -2,6 +2,7 @@ import dotenv from 'dotenv'
 import express from 'express'
 // import { connectDB } from './db/mongoose.js'
 import apiRouter from './routes/api.js'
+import cors from 'cors'
 
 // Some configurations
 dotenv.config()
@@ -9,6 +10,9 @@ dotenv.config()
 
 // Get an express instance
 const app = express()
+
+// Allow Cross Origin
+app.use(cors())
 
 // Setup json use
 app.use(express.json())
